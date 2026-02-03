@@ -545,6 +545,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &376591388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376591391}
+  - component: {fileID: 376591390}
+  - component: {fileID: 376591389}
+  m_Layer: 5
+  m_Name: Dog_Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &376591389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376591388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7429689708144148855, guid: 03c85b83815e8c648a1d83b8a4002ef6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &376591390
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376591388}
+  m_CullTransparentMesh: 1
+--- !u!224 &376591391
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376591388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 906894579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 9, y: 50}
+  m_SizeDelta: {x: 500, y: 673.6689}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +890,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582639666}
   m_CullTransparentMesh: 1
+--- !u!1 &611234151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611234154}
+  - component: {fileID: 611234153}
+  - component: {fileID: 611234152}
+  m_Layer: 5
+  m_Name: Bear_Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &611234152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611234151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8995853875958037312, guid: 6d5964a27c81bfd49939d4a6df0bd025, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &611234153
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611234151}
+  m_CullTransparentMesh: 1
+--- !u!224 &611234154
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611234151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.07, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 906894579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 15, y: 58}
+  m_SizeDelta: {x: 500, y: 850}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1498,9 @@ RectTransform:
   - {fileID: 220521623}
   - {fileID: 1951662064}
   - {fileID: 651582336}
+  - {fileID: 1315266801}
+  - {fileID: 376591391}
+  - {fileID: 611234154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1959,6 +2112,60 @@ MonoBehaviour:
     - outfitSprite: {fileID: 2777282942207060166, guid: 3844cf0794589c64393dbaee85666538, type: 3}
       customScale: 1.1
       verticalShiftY: 30
+  - name: Frog
+    characterObj: {fileID: 1315266799}
+    undressedSprite: {fileID: 8497914610594043954, guid: 2294af2434763494f82629f574aa4973, type: 3}
+    undressedScale: 1
+    initialAnchoredPosition: {x: 0, y: 0}
+    outfits:
+    - outfitSprite: {fileID: 7657704944977607742, guid: 8bfd19fff1b84064d9606f5a76f3b95b, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 1300728374843050646, guid: a413309bf8094f94c8a03a79b18baa29, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: -1892096773815961033, guid: 7bb8164160247a648874a2d1f5adc2a7, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: -7670295811405287349, guid: 39a58095f8319fd4092fedb1866afcfb, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+  - name: Dog
+    characterObj: {fileID: 376591389}
+    undressedSprite: {fileID: 7429689708144148855, guid: 03c85b83815e8c648a1d83b8a4002ef6, type: 3}
+    undressedScale: 1
+    initialAnchoredPosition: {x: 0, y: 0}
+    outfits:
+    - outfitSprite: {fileID: -8618168527551748239, guid: 71da15f490cc1384cb80f3132c35b68a, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: -6954370034098082367, guid: 6c4ce4d8475b4554f8dcc49e73e3e624, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 7632666515937808016, guid: 6325eaa7f759c734bb392564f30335fd, type: 3}
+      customScale: 1.17
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 549612853483991166, guid: 00506f071a5f6b84eb4081b9ab6931b0, type: 3}
+      customScale: 1
+      verticalShiftY: 1
+  - name: Bear
+    characterObj: {fileID: 611234152}
+    undressedSprite: {fileID: 8995853875958037312, guid: 6d5964a27c81bfd49939d4a6df0bd025, type: 3}
+    undressedScale: 1
+    initialAnchoredPosition: {x: 0, y: 0}
+    outfits:
+    - outfitSprite: {fileID: -8958151788998158858, guid: d7931552112beee4ea38e78c206f5f12, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 4122418034487884274, guid: 814c114c2a55a614e91820c6722f7040, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 5731333552168059078, guid: 95bfed976fa9d19489c9efcebd36d112, type: 3}
+      customScale: 1.17
+      verticalShiftY: 30
+    - outfitSprite: {fileID: -4104543281524979884, guid: 5b9ec066ac6544242a48f2d123487d3d, type: 3}
+      customScale: 1
+      verticalShiftY: 1
 --- !u!4 &1068085988
 Transform:
   m_ObjectHideFlags: 0
@@ -2107,6 +2314,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286725512}
   m_CullTransparentMesh: 1
+--- !u!1 &1315266798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315266801}
+  - component: {fileID: 1315266800}
+  - component: {fileID: 1315266799}
+  m_Layer: 5
+  m_Name: Frog_Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1315266799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315266798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.9803922, b: 0.9803922, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8497914610594043954, guid: 2294af2434763494f82629f574aa4973, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1315266800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315266798}
+  m_CullTransparentMesh: 1
+--- !u!224 &1315266801
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315266798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 906894579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 12.132702, y: 40.94787}
+  m_SizeDelta: {x: 500, y: 673.6689}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1325553425
 GameObject:
   m_ObjectHideFlags: 0
