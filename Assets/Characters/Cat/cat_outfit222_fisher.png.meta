@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 472b2d1b76f7f314099b3ef41a6cdb9b
+guid: d46c265091b866f4cab2535b1fd6a507
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3562140404540130658
-    second: cat_outfit11_cheerleader_0
+      213: -5903974845430691225
+    second: cat_outfit222_fisher_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat_outfit11_cheerleader_0
+      name: cat_outfit222_fisher_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 8
-        width: 152
-        height: 220
+        x: 8
+        y: 30
+        width: 166
+        height: 257
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9ab153dc2cb09ec0800000000000000
-      internalID: -3562140404540130658
+      spriteID: 76a034f982ed01ea0800000000000000
+      internalID: -5903974845430691225
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat_outfit11_cheerleader_0: -3562140404540130658
+      cat_outfit222_fisher_0: -5903974845430691225
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

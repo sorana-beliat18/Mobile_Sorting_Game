@@ -1947,18 +1947,18 @@ MonoBehaviour:
     undressedScale: 1
     initialAnchoredPosition: {x: 0, y: 0}
     outfits:
-    - outfitSprite: {fileID: -3562140404540130658, guid: 472b2d1b76f7f314099b3ef41a6cdb9b, type: 3}
-      customScale: 1
-      verticalShiftY: 0
-    - outfitSprite: {fileID: 4004183718616444737, guid: b822c370d0031e8439beeeac3e559175, type: 3}
-      customScale: 1
-      verticalShiftY: 0
-    - outfitSprite: {fileID: -1372815374674244354, guid: 26dc361f08420864bb55cc6c8f278ee4, type: 3}
-      customScale: 1
-      verticalShiftY: 0
-    - outfitSprite: {fileID: -2695559933419324875, guid: 347af5f48dd617445baf3ad0d2b5e693, type: 3}
-      customScale: 1
-      verticalShiftY: 0
+    - outfitSprite: {fileID: 5470790717399685381, guid: e2cefd4dc4fac454f88a0dbb4b52da67, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 7090085197293210312, guid: a592f29930271ba45a2f56ed9bbabf3b, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 330551177438305534, guid: cd90cc7cc3c4f3b448435e576fe7162f, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
+    - outfitSprite: {fileID: 2777282942207060166, guid: 3844cf0794589c64393dbaee85666538, type: 3}
+      customScale: 1.1
+      verticalShiftY: 30
 --- !u!4 &1068085988
 Transform:
   m_ObjectHideFlags: 0
