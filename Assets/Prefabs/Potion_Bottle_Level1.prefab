@@ -139,16 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d910fc5f84772bf47b66d5474e9b953e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BottleController
-  availableColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - {r: 1, g: 0.5490196, b: 0, a: 1}
   liquidSprites:
   - {fileID: 7568350071615184703}
   - {fileID: 781878045574329603}
   - {fileID: 4368798911211677331}
   - {fileID: 0}
+  availableColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 1, g: 0.5490196, b: 0, a: 1}
   liquidLayers: 01000000020000000300000004000000
 --- !u!1 &5135282931938279363
 GameObject:
