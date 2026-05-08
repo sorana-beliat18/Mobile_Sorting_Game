@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
 
     void GenerateLevel()
     {
-        // ... (Validari) ...
-
         List<int> liquidDeck = new List<int>();
 
         // Calculăm câte segmente punem. 
