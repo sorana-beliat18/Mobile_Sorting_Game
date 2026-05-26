@@ -12,6 +12,8 @@ public class BottleController : MonoBehaviour
 
     private Color[] availableColors;
     private Material uniqueMaterial;
+    private bool isSelected = false;
+    private float pulseTimer = 0f;
 
     void Awake()
     {
@@ -22,6 +24,36 @@ public class BottleController : MonoBehaviour
             uniqueMaterial = maskRenderer.material;
         }
     }
+
+    void Update()
+    {
+        if (isSelected && uniqueMaterial != null)
+        {
+            pulseTimer += Time.deltaTime * 6f;
+            int topIndex = GetTopColorLayerIndex();
+
+            if (topIndex != -1)
+            {
+                Color originalNoteColor = GetColorFromID(liquidLayers[topIndex]);
+                Color emptyGlassColor;
+                ColorUtility.TryParseHtmlString("#F4F7F9", out emptyGlassColor);
+                Color pulsedColor = Color.Lerp(originalNoteColor, emptyGlassColor, Mathf.PingPong(pulseTimer, 1f));
+                if (topIndex == 0) uniqueMaterial.SetColor("_Color_1", pulsedColor);
+                if (topIndex == 1) uniqueMaterial.SetColor("_Color_2", pulsedColor);
+                if (topIndex == 2) uniqueMaterial.SetColor("_Color_3", pulsedColor);
+            }
+        }
+    }
+    public void SetSelected(bool selected)
+    {
+        isSelected = selected;
+        if (!selected)
+        {
+            // Când oprim selecția, resetăm obligatoriu nota la culoarea ei solidă
+            UpdateVisuals();
+        }
+    }
+
     public void SetupBottle(int[] newLayers, Color[] levelColors)
     {
         availableColors = levelColors;
@@ -76,14 +108,21 @@ public class BottleController : MonoBehaviour
     }
 
     // --- LOGIC FUNCTIONS FOR GAME MECHANICS ---
-
+    public int GetTopColorLayerIndex()
+    {
+        for (int i = 2; i >= 0; i--)
+        {
+            if (liquidLayers[i] != 0) return i;
+        }
+        return -1;
+    }
     public int GetTopColorID()
     {
         for (int i = 2; i >= 0; i--)
         {
             if (liquidLayers[i] != 0) return liquidLayers[i];
         }
-        return 0; // The bottle is empty
+        return 0;
     }
 
     public int GetFreeSpaceCount()
@@ -143,6 +182,7 @@ public class BottleController : MonoBehaviour
 
     void OnMouseDown()
     {
-        FindObjectOfType<GameManager>().HandleBottleClick(this);
+        Debug.Log("Click: " +gameObject.name);
+        FindFirstObjectByType<GameManager>().HandleBottleClick(this);
     }
 }
