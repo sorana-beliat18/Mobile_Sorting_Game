@@ -17,8 +17,6 @@ public class BottleController : MonoBehaviour
 
     void Awake()
     {
-        // We create a unique copy of the material for each individual bottle.
-        // If we don't do this, when we color one bottle, they will all color the same!
         if (maskRenderer != null)
         {
             uniqueMaterial = maskRenderer.material;
@@ -29,18 +27,27 @@ public class BottleController : MonoBehaviour
     {
         if (isSelected && uniqueMaterial != null)
         {
-            pulseTimer += Time.deltaTime * 6f;
-            int topIndex = GetTopColorLayerIndex();
-
-            if (topIndex != -1)
+            int topColorID = GetTopColorID();
+            if (topColorID != 0)
             {
-                Color originalNoteColor = GetColorFromID(liquidLayers[topIndex]);
+                pulseTimer += Time.deltaTime * 6f;
+                Color originalNoteColor = GetColorFromID(topColorID);
                 Color emptyGlassColor;
                 ColorUtility.TryParseHtmlString("#F4F7F9", out emptyGlassColor);
                 Color pulsedColor = Color.Lerp(originalNoteColor, emptyGlassColor, Mathf.PingPong(pulseTimer, 1f));
-                if (topIndex == 0) uniqueMaterial.SetColor("_Color_1", pulsedColor);
-                if (topIndex == 1) uniqueMaterial.SetColor("_Color_2", pulsedColor);
-                if (topIndex == 2) uniqueMaterial.SetColor("_Color_3", pulsedColor);
+                for (int i = 2; i >= 0; i--)
+                {
+                    if (liquidLayers[i] == topColorID)
+                    {
+                        if (i == 0) uniqueMaterial.SetColor("_Color_1", pulsedColor);
+                        if (i == 1) uniqueMaterial.SetColor("_Color_2", pulsedColor);
+                        if (i == 2) uniqueMaterial.SetColor("_Color_3", pulsedColor);
+                    }
+                    else if (liquidLayers[i] != 0)
+                    {
+                        break;
+                    }
+                }
             }
         }
     }
@@ -49,7 +56,6 @@ public class BottleController : MonoBehaviour
         isSelected = selected;
         if (!selected)
         {
-            // Când oprim selecția, resetăm obligatoriu nota la culoarea ei solidă
             UpdateVisuals();
         }
     }
@@ -69,26 +75,22 @@ public class BottleController : MonoBehaviour
     {
         if (uniqueMaterial == null) return;
 
-        // We convert the numeric IDs into actual colors from the palette
         Color baseColor = GetColorFromID(liquidLayers[0]);
         Color middleColor = GetColorFromID(liquidLayers[1]);
         Color topColor = GetColorFromID(liquidLayers[2]);
 
-        // Send the colors to the shader using the new English references
         uniqueMaterial.SetColor("_Color_1", baseColor);
         uniqueMaterial.SetColor("_Color_2", middleColor);
         uniqueMaterial.SetColor("_Color_3", topColor);
 
-        // We calculate the shader height based on how many layers are not 0 (empty)
         int filledLayers = 0;
         for (int i = 0; i < 3; i++)
         {
             if (liquidLayers[i] != 0) filledLayers++;
         }
 
-        // We map the number of layers to the shader slider (-0.5 is empty, 0.5 is full)
         float fillValue = -0.5f; // Default empty
-        if (filledLayers == 1) fillValue = -0.16f; // Adjust these numbers if the lines don't fit perfectly on your model
+        if (filledLayers == 1) fillValue = -0.16f; 
         if (filledLayers == 2) fillValue = 0.16f;
         if (filledLayers == 3) fillValue = 0.5f;
 
@@ -106,8 +108,6 @@ public class BottleController : MonoBehaviour
 
         return availableColors[id - 1];
     }
-
-    // --- LOGIC FUNCTIONS FOR GAME MECHANICS ---
     public int GetTopColorLayerIndex()
     {
         for (int i = 2; i >= 0; i--)

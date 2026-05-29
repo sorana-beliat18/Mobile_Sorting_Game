@@ -68,18 +68,18 @@ public class GameManager : MonoBehaviour
     public void HandleBottleClick(BottleController clickedBottle)
     {
         if (isLevelComplete) return;
-        
+
         if (selectedBottle == null)
         {
             if (clickedBottle.GetTopColorID() != 0)
             {
                 selectedBottle = clickedBottle;
-                selectedBottle.SetSelected(true); 
+                selectedBottle.SetSelected(true);
                 Debug.Log("Bottle selected: " + clickedBottle.gameObject.name);
             }
         }
-        else if (selectedBottle == clickedBottle) 
-        { 
+        else if (selectedBottle == clickedBottle)
+        {
             selectedBottle.SetSelected(false);
             selectedBottle = null;
             Debug.Log("Deselected.");
@@ -89,22 +89,41 @@ public class GameManager : MonoBehaviour
             int sourceColor = selectedBottle.GetTopColorID();
             int targetColor = clickedBottle.GetTopColorID();
             int spaceInTarget = clickedBottle.GetFreeSpaceCount();
+
+            // Move allowed
             if (spaceInTarget > 0 && (targetColor == 0 || targetColor == sourceColor))
             {
                 int amountInSource = selectedBottle.GetTopColorCount();
                 int amountToMove = Mathf.Min(amountInSource, spaceInTarget);
-                selectedBottle.SetSelected(false); 
+
+                selectedBottle.SetSelected(false);
+
                 selectedBottle.ExtractLiquid(amountToMove);
                 clickedBottle.AddLiquid(sourceColor, amountToMove);
+                GameObject audioMgr = GameObject.Find("AudioManager");
+                if (audioMgr != null)
+                {
+                    AudioSource[] sources = audioMgr.GetComponents<AudioSource>();
+                    if (sources.Length > 0) sources[0].Play(); 
+                }
+
                 Debug.Log("Liquid moved successfully!");
+
                 selectedBottle = null;
                 CheckWinCondition();
             }
             else
             {
+                // Move not allowed
                 selectedBottle.SetSelected(false);
                 selectedBottle = null;
                 Debug.Log("Invalid move!");
+                GameObject audioMgr = GameObject.Find("AudioManager");
+                if (audioMgr != null)
+                {
+                    AudioSource[] sources = audioMgr.GetComponents<AudioSource>();
+                    if (sources.Length > 1) sources[1].Play();
+                }
             }
         }
     }
