@@ -127,7 +127,28 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void RetryLevel()
+    {
+        isLevelComplete = false;
+        if (selectedBottle != null)
+        {
+            selectedBottle.SetSelected(false);
+            selectedBottle = null;
+        }
+        GenerateLevel1();
 
+        Debug.Log("Level Restarted!");
+    }
+
+    public void GoToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ChangeGlobalVolume(float volumeLevel)
+    {
+        AudioListener.volume = volumeLevel;
+    }
     void CheckWinCondition()
     {
         foreach (BottleController bottle in bottles)
