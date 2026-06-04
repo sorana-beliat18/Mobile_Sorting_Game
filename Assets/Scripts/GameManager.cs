@@ -5,63 +5,81 @@ public class GameManager : MonoBehaviour
 {
     [Header("Level Configuration")]
     public Color[] levelColorPalette;   
-    public BottleController[] bottles; 
+    public BottleController[] bottles;
 
     private BottleController selectedBottle;
     private bool isLevelComplete = false;
 
     void Start()
     {
-        GenerateLevel1();
+        GenerateLevel();
     }
 
-    void GenerateLevel1()
+    void GenerateLevel()
     {
-        List<int> liquidDeck = new List<int>();
-        for (int i = 0; i < 3; i++) liquidDeck.Add(1);
-        for (int i = 0; i < 3; i++) liquidDeck.Add(2);
-        for (int i = 0; i < 3; i++) liquidDeck.Add(3);
-        bool isDeckValid = false;
-        while (!isDeckValid)
+        int numColors = levelColorPalette.Length;
+        int numBottles = bottles.Length;
+        int[][] simulatedBottles = new int[numBottles][];
+        for (int i = 0; i < numBottles; i++)
         {
-            for (int i = 0; i < liquidDeck.Count; i++)
+            simulatedBottles[i] = new int[3];
+            if (i < numColors)
             {
-                int temp = liquidDeck[i];
-                int randomIndex = Random.Range(i, liquidDeck.Count);
-                liquidDeck[i] = liquidDeck[randomIndex];
-                liquidDeck[randomIndex] = temp;
-            }
-            isDeckValid = true; 
-            for (int b = 0; b < bottles.Length - 1; b++)
-            {
-                int baseNote = liquidDeck[b * 3];
-                int middleNote = liquidDeck[b * 3 + 1];
-                int topNote = liquidDeck[b * 3 + 2];
-                if (baseNote == middleNote && middleNote == topNote)
-                {
-                    isDeckValid = false; 
-                    break;
-                }
+                simulatedBottles[i][0] = i + 1; 
+                simulatedBottles[i][1] = i + 1;
+                simulatedBottles[i][2] = i + 1;
             }
         }
-        int cardIndex = 0;
-        for (int b = 0; b < bottles.Length; b++)
+        // Reverse Shuffle
+        int moves = 0;
+        int attempts = 0;
+        int maxMoves = numColors * 20;
+
+        while (moves < maxMoves && attempts < 1000)
         {
-            int[] startingLayers = new int[3];
-            if (b < bottles.Length - 1)
+            attempts++;
+            int takeIdx = Random.Range(0, numBottles);
+            int putIdx = Random.Range(0, numBottles);
+            if (takeIdx == putIdx) continue;
+
+            int takeCount = 0;
+            int topColor = 0;
+            for (int layer = 0; layer < 3; layer++)
             {
-                for (int layer = 0; layer < 3; layer++)
+                if (simulatedBottles[takeIdx][layer] != 0)
                 {
-                    startingLayers[layer] = liquidDeck[cardIndex];
-                    cardIndex++;
+                    takeCount = layer + 1;
+                    topColor = simulatedBottles[takeIdx][layer];
                 }
             }
-            else
+
+            if (takeCount == 0) continue;
+
+            bool canTake = true;
+            if (takeCount > 1)
             {
-                for (int layer = 0; layer < 3; layer++) startingLayers[layer] = 0;
+                int colorBelow = simulatedBottles[takeIdx][takeCount - 2];
+                if (colorBelow != topColor) canTake = false;
             }
 
-            bottles[b].SetupBottle(startingLayers, levelColorPalette);
+            if (!canTake) continue;
+
+            int putCount = 0;
+            for (int layer = 0; layer < 3; layer++)
+            {
+                if (simulatedBottles[putIdx][layer] != 0) putCount = layer + 1;
+            }
+
+            if (putCount == 3) continue;
+            simulatedBottles[takeIdx][takeCount - 1] = 0;
+            simulatedBottles[putIdx][putCount] = topColor;
+
+            moves++;
+            attempts = 0;
+        }
+        for (int b = 0; b < bottles.Length; b++)
+        {
+            bottles[b].SetupBottle(simulatedBottles[b], levelColorPalette);
         }
     }
 
@@ -135,8 +153,7 @@ public class GameManager : MonoBehaviour
             selectedBottle.SetSelected(false);
             selectedBottle = null;
         }
-        GenerateLevel1();
-
+        GenerateLevel();
         Debug.Log("Level Restarted!");
     }
 
