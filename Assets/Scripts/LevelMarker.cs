@@ -14,7 +14,6 @@ public class LevelMarker : MonoBehaviour
     public Image glowImage;
     public TextMeshProUGUI numberText;
     public Button myButton;
-    // We completely removed 'buttonImage' because we don't modify it anymore!
 
     [Header("Glow Settings (Colors)")]
     public Color lockedColor = new Color(1f, 0.9f, 0.5f);
@@ -45,9 +44,9 @@ public class LevelMarker : MonoBehaviour
 
         if (levelNumber < reachedLevel)
         {
-            // CASE 1: COMPLETED
+            // Case 1: Completed
             currentState = LevelState.Completed;
-            myButton.interactable = true; // Can click to replay
+            myButton.interactable = true;
 
             if (glowImage != null)
             {
@@ -57,9 +56,9 @@ public class LevelMarker : MonoBehaviour
         }
         else if (levelNumber == reachedLevel)
         {
-            // CASE 2: CURRENT
+            // Case 2: Current
             currentState = LevelState.Current;
-            myButton.interactable = true; // Can click to play
+            myButton.interactable = true; 
 
             if (glowImage != null)
             {
@@ -69,9 +68,9 @@ public class LevelMarker : MonoBehaviour
         }
         else
         {
-            // CASE 3: LOCKED
+            // Case 3: Locked
             currentState = LevelState.Locked;
-            myButton.interactable = false; // Cannot click yet
+            myButton.interactable = false; 
 
             if (glowImage != null)
             {
@@ -93,26 +92,22 @@ public class LevelMarker : MonoBehaviour
         {
             case LevelState.Locked:
                 speed = lockedPulseSpeed;
-                maxAlpha = 0.3f; // Very subtle
+                maxAlpha = 0.3f; 
                 minAlpha = 0.1f;
                 break;
             case LevelState.Current:
                 speed = currentPulseSpeed;
-                maxAlpha = 0.8f; // Bright
+                maxAlpha = 0.8f;
                 minAlpha = 0.4f;
                 break;
             case LevelState.Completed:
                 speed = completedPulseSpeed;
-                maxAlpha = 1.0f; // Maximum brightness
+                maxAlpha = 1.0f; 
                 minAlpha = 0.6f;
                 break;
         }
-
-        // Pulse the size
         float pulse = 1f + Mathf.Sin(Time.time * speed) * 0.1f;
         glowImage.transform.localScale = initialGlowScale * pulse;
-
-        // Pulse the transparency (Alpha)
         Color c = glowImage.color;
         float midAlpha = (maxAlpha + minAlpha) / 2f;
         float amplitude = (maxAlpha - minAlpha) / 2f;
@@ -123,6 +118,7 @@ public class LevelMarker : MonoBehaviour
     void OnLevelClicked()
     {
         PlayerPrefs.SetInt("SelectedLevel", levelNumber);
-        Debug.Log("Clicked on level: " + levelNumber);
+        Debug.Log("Clicked on level: " + levelNumber +". Loading scene: " + sceneToLoad );
+        UnityEngine.SceneManagement.SceneManager.LoadScene( sceneToLoad );
     }
 }
