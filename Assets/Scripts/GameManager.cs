@@ -6,9 +6,11 @@ public class GameManager : MonoBehaviour
     [Header("Level Configuration")]
     public Color[] levelColorPalette;   
     public BottleController[] bottles;
+    public GameObject WinScreen;
 
     private BottleController selectedBottle;
     private bool isLevelComplete = false;
+
 
     void Start()
     {
@@ -187,5 +189,6 @@ public class GameManager : MonoBehaviour
     void TriggerLevelCompleteUI()
     {
         Debug.Log("Level Complete Scene");
+        WinScreen.SetActive(true);
     }
 }
