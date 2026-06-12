@@ -66,4 +66,10 @@ public class WinScreen : MonoBehaviour
         int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex+1);
     }
+
+    public void RetryCurrentLevel()
+    {
+        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
+    }
 }
