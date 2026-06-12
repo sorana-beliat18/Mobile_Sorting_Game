@@ -60,4 +60,10 @@ public class WinScreen : MonoBehaviour
         float newY = startPos.y + Mathf.Abs(Mathf.Sin(animationTimer * floatSpeed)) *floatAmount;
         characterImage.rectTransform.anchoredPosition = new Vector2(startPos.x, newY);
     }
+
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex+1);
+    }
 }
