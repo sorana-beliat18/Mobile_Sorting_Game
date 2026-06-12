@@ -960,16 +960,16 @@ RectTransform:
   m_GameObject: {fileID: 859689984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.7125037, y: 2.4544153, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1349444770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.7243, y: -386.39}
-  m_SizeDelta: {x: 547.1, y: 527.2222}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.7243, y: -650.0011}
+  m_SizeDelta: {x: 184, y: 265}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &859689986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,9 +1019,8 @@ MonoBehaviour:
     - outfitSprite: {fileID: -2005922236851230612, guid: 784fdf2a076059d47a423c87483320a3, type: 3}
     - outfitSprite: {fileID: -5723910351078447141, guid: 0eaa3192c95996a49b50d17ea84c0bfa, type: 3}
     - outfitSprite: {fileID: 7427694699321706087, guid: 028faac636aff25409d0a4efb1418e86, type: 3}
-  bounceSpeed: 6
-  bounceHeight: 30
-  squishAmount: 0.15
+  floatSpeed: 2
+  floatAmount: 10
 --- !u!114 &859689987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,9 +1041,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1257430882015540707, guid: d4ab7f21b83f6d547bce0f2d9d2029a5, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
