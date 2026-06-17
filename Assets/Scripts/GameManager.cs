@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Menu");
     }
 
     public void ChangeGlobalVolume(float volumeLevel)

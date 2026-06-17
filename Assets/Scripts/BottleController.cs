@@ -5,6 +5,9 @@ public class BottleController : MonoBehaviour
     [Header("Visual Configuration")]
     public SpriteRenderer maskRenderer;
 
+    [Header("Mystery Layer Settings")]
+    public GameObject[] mysteryIcons;
+
     [Header("Real-Time Data")]
     // Array of size 3: index 0 = Base, index 1 = Middle, index 2 = Top
     // 0 = Empty, 1 = Color A, 2 = Color B, 3 = Color C
@@ -95,6 +98,18 @@ public class BottleController : MonoBehaviour
         if (filledLayers == 3) fillValue = 0.5f;
 
         uniqueMaterial.SetFloat("_Fill_Amount", fillValue);
+
+        if (mysteryIcons != null && mysteryIcons.Length == 3)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                bool isCovered = (i < GetTopColorLayerIndex());
+                if (mysteryIcons[i] != null)
+                {
+                    mysteryIcons[i].SetActive(isCovered && liquidLayers[i] != 0);
+                }
+            }
+        }
     }
 
     private Color GetColorFromID(int id)

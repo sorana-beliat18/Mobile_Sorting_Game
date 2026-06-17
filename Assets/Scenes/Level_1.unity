@@ -1992,12 +1992,31 @@ PrefabInstance:
     - target: {fileID: 8860294323924420818, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1424254457}
+      objectReference: {fileID: 3789861660333603616}
+    - target: {fileID: 8860294323924420818, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryCurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860294323924420818, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsNavigation, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+--- !u!114 &3789861660333603616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9219636717713203814, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+  m_PrefabInstance: {fileID: 3789861660333603615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665485913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2666671a6cf7b548bb82933a19a84c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsNavigation
 --- !u!1001 &4159184744314785987
 PrefabInstance:
   m_ObjectHideFlags: 0
