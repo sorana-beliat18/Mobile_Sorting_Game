@@ -6,6 +6,7 @@ public class BottleController : MonoBehaviour
     public SpriteRenderer maskRenderer;
 
     [Header("Mystery Layer Settings")]
+    public bool isMysteryBottle = false;
     public GameObject[] mysteryIcons;
 
     [Header("Real-Time Data")]
@@ -77,10 +78,21 @@ public class BottleController : MonoBehaviour
     public void UpdateVisuals()
     {
         if (uniqueMaterial == null) return;
+        int topIndex = GetTopColorLayerIndex();
 
         Color baseColor = GetColorFromID(liquidLayers[0]);
         Color middleColor = GetColorFromID(liquidLayers[1]);
         Color topColor = GetColorFromID(liquidLayers[2]);
+
+        if (isMysteryBottle)
+        {
+            Color mysteryColor;
+            ColorUtility.TryParseHtmlString("#5A5A5A", out mysteryColor);
+
+            if (0 < topIndex && liquidLayers[0] != 0) baseColor = mysteryColor;
+            if (1 < topIndex && liquidLayers[1] != 0) middleColor = mysteryColor;
+            if (2 < topIndex && liquidLayers[2] != 0) topColor = mysteryColor;
+        }
 
         uniqueMaterial.SetColor("_Color_1", baseColor);
         uniqueMaterial.SetColor("_Color_2", middleColor);
@@ -92,8 +104,8 @@ public class BottleController : MonoBehaviour
             if (liquidLayers[i] != 0) filledLayers++;
         }
 
-        float fillValue = -0.5f; // Default empty
-        if (filledLayers == 1) fillValue = -0.16f; 
+        float fillValue = -0.5f;
+        if (filledLayers == 1) fillValue = -0.16f;
         if (filledLayers == 2) fillValue = 0.16f;
         if (filledLayers == 3) fillValue = 0.5f;
 
@@ -103,10 +115,10 @@ public class BottleController : MonoBehaviour
         {
             for (int i = 0; i < 3; i++)
             {
-                bool isCovered = (i < GetTopColorLayerIndex());
                 if (mysteryIcons[i] != null)
                 {
-                    mysteryIcons[i].SetActive(isCovered && liquidLayers[i] != 0);
+                    bool isCovered = (i < topIndex);
+                    mysteryIcons[i].SetActive(isMysteryBottle && isCovered && liquidLayers[i] != 0);
                 }
             }
         }
