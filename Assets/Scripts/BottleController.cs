@@ -14,6 +14,7 @@ public class BottleController : MonoBehaviour
     // 0 = Empty, 1 = Color A, 2 = Color B, 3 = Color C
     public int[] liquidLayers = new int[3];
 
+    private bool[] layerIsHidden = new bool[3];
     private Color[] availableColors;
     private Material uniqueMaterial;
     private bool isSelected = false;
@@ -41,7 +42,7 @@ public class BottleController : MonoBehaviour
                 Color pulsedColor = Color.Lerp(originalNoteColor, emptyGlassColor, Mathf.PingPong(pulseTimer, 1f));
                 for (int i = 2; i >= 0; i--)
                 {
-                    if (liquidLayers[i] == topColorID)
+                    if (liquidLayers[i] == topColorID && !layerIsHidden[i])
                     {
                         if (i == 0) uniqueMaterial.SetColor("_Color_1", pulsedColor);
                         if (i == 1) uniqueMaterial.SetColor("_Color_2", pulsedColor);
@@ -73,26 +74,40 @@ public class BottleController : MonoBehaviour
             liquidLayers[i] = newLayers[i];
         }
 
+        int topIdx = GetTopColorLayerIndex();
+        for (int i = 0; i < 3; i++)
+        {
+            if (isMysteryBottle && i < topIdx && liquidLayers[i] != 0)
+            {
+                layerIsHidden[i] = true;
+            }
+            else
+            {
+                layerIsHidden[i] = false;
+            }
+        }
+
         UpdateVisuals();
     }
     public void UpdateVisuals()
     {
         if (uniqueMaterial == null) return;
         int topIndex = GetTopColorLayerIndex();
+        if(topIndex!=-1 && layerIsHidden[topIndex])
+        {
+            layerIsHidden[topIndex] = false;
+        }
 
         Color baseColor = GetColorFromID(liquidLayers[0]);
         Color middleColor = GetColorFromID(liquidLayers[1]);
         Color topColor = GetColorFromID(liquidLayers[2]);
 
-        if (isMysteryBottle)
-        {
-            Color mysteryColor;
-            ColorUtility.TryParseHtmlString("#5A5A5A", out mysteryColor);
+        Color mysteryColor;
+        ColorUtility.TryParseHtmlString("#5A5A5A", out mysteryColor);
 
-            if (0 < topIndex && liquidLayers[0] != 0) baseColor = mysteryColor;
-            if (1 < topIndex && liquidLayers[1] != 0) middleColor = mysteryColor;
-            if (2 < topIndex && liquidLayers[2] != 0) topColor = mysteryColor;
-        }
+        if (layerIsHidden[0]) baseColor = mysteryColor;
+        if (layerIsHidden[1]) middleColor = mysteryColor;
+        if (layerIsHidden[2]) topColor = mysteryColor;
 
         uniqueMaterial.SetColor("_Color_1", baseColor);
         uniqueMaterial.SetColor("_Color_2", middleColor);
@@ -117,8 +132,7 @@ public class BottleController : MonoBehaviour
             {
                 if (mysteryIcons[i] != null)
                 {
-                    bool isCovered = (i < topIndex);
-                    mysteryIcons[i].SetActive(isMysteryBottle && isCovered && liquidLayers[i] != 0);
+                    mysteryIcons[i].SetActive(layerIsHidden[i]);
                 }
             }
         }
@@ -171,8 +185,10 @@ public class BottleController : MonoBehaviour
         int count = 0;
         for (int i = 2; i >= 0; i--)
         {
-            if (liquidLayers[i] == color) count++;
-            else if (liquidLayers[i] != 0) break;
+            if (liquidLayers[i] == color && !layerIsHidden[i])
+                count++;
+            else if (liquidLayers[i] != 0) 
+                break;
         }
         return count;
     }
@@ -182,9 +198,10 @@ public class BottleController : MonoBehaviour
         int removed = 0;
         for (int i = 2; i >= 0; i--)
         {
-            if (liquidLayers[i] != 0)
+            if (liquidLayers[i] != 0 && !layerIsHidden[i])
             {
                 liquidLayers[i] = 0;
+                layerIsHidden[i] = false;
                 removed++;
                 if (removed >= amount) break;
             }
@@ -200,6 +217,7 @@ public class BottleController : MonoBehaviour
             if (liquidLayers[i] == 0)
             {
                 liquidLayers[i] = colorID;
+                layerIsHidden[i] = false;
                 added++;
                 if (added >= amount) break;
             }
