@@ -172,6 +172,14 @@ public class GameManager : MonoBehaviour
     {
         foreach (BottleController bottle in bottles)
         {
+            if (bottle != null)
+            {
+                bottle.CheckAndForceRevealMystery();
+            }
+        }
+
+        foreach (BottleController bottle in bottles)
+        {
             int topColor = bottle.GetTopColorID();
             if (topColor == 0) continue; 
 
@@ -179,12 +187,12 @@ public class GameManager : MonoBehaviour
                 bottle.liquidLayers[1] != topColor ||
                 bottle.liquidLayers[2] != topColor)
             {
-                return; // There are still mixed bottles, the game continues
+                return; 
             }
         }
         isLevelComplete = true;
         Debug.Log("Level complete!");
-        TriggerLevelCompleteUI();
+        Invoke("TriggerLevelCompleteUI", 0.6f);
     }
     void TriggerLevelCompleteUI()
     {

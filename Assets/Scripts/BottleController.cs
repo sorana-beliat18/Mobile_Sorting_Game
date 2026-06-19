@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class BottleController : MonoBehaviour
 {
@@ -223,6 +224,30 @@ public class BottleController : MonoBehaviour
             }
         }
         UpdateVisuals();
+    }
+
+    public void CheckAndForceRevealMystery()
+    {
+        if (liquidLayers[0] != 0 && liquidLayers[0] == liquidLayers[1] && liquidLayers[1] == liquidLayers[2])
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                layerIsHidden[i] = false;
+            }
+
+            if (mysteryIcons != null)
+            {
+                for (int i = 0; i < mysteryIcons.Length; i++)
+                {
+                    if (mysteryIcons[i] != null)
+                    {
+                        mysteryIcons[i].SetActive(false);
+                    }
+                }
+            }
+            isMysteryBottle = false;
+            UpdateVisuals();
+        }
     }
 
     void OnMouseDown()
