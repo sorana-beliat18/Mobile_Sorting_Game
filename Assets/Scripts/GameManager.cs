@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Level Configuration")]
+    public int levelNumber = 1;
     public Color[] levelColorPalette;   
     public BottleController[] bottles;
     public GameObject WinScreen;
@@ -198,5 +200,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Level Complete Scene");
         WinScreen.SetActive(true);
+        int nextLevel = levelNumber + 1; 
+        if (nextLevel > PlayerPrefs.GetInt("UnlockedLevel", 1))
+        {
+            PlayerPrefs.SetInt("UnlockedLevel", nextLevel); 
+            PlayerPrefs.Save();
+            Debug.Log("Progres salvat! Noul nivel deblocat este: " + nextLevel);
+        }
     }
+
 }

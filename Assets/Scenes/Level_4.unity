@@ -1152,6 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ae0a9c46691824b92b0c427968990b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  levelNumber: 4
   levelColorPalette:
   - {r: 0.16470589, g: 0.3882353, b: 0.15294118, a: 1}
   - {r: 0.9882353, g: 0.9254902, b: 0.6156863, a: 1}

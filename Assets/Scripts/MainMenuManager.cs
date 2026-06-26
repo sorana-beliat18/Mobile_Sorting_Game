@@ -3,14 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject settingsPanel; 
-    public void StartNewGame()
+    [SerializeField] private GameObject settingsPanel;
+    public void PlayGame()
     {
-        SceneManager.LoadScene("CustomizationZone");
-    }
-    public void GoToMap()
-    {
-        SceneManager.LoadScene("Game_Map");
+        int savedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        if (savedLevel == 1)
+        {
+            SceneManager.LoadScene("CustomizationZone");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game_Map");
+        }
     }
     public void OpenSettings()
     {
@@ -18,5 +22,9 @@ public class MainMenuManager : MonoBehaviour
         {
             settingsPanel.SetActive(true);
         }
+    }
+    public void GoToMap()
+    {
+        SceneManager.LoadScene("Game_Map");
     }
 }

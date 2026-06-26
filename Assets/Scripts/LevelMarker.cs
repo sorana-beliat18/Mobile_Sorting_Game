@@ -40,7 +40,7 @@ public class LevelMarker : MonoBehaviour
 
     void UpdateLevelStatus()
     {
-        int reachedLevel = PlayerPrefs.GetInt("ReachedLevel", 1);
+        int reachedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
 
         if (levelNumber < reachedLevel)
         {
