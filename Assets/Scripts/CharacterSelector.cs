@@ -86,7 +86,7 @@ public class CharacterSelector : MonoBehaviour
         // 1.Save data
         PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
         PlayerPrefs.SetInt("SelectedOutfitIndex", currentOutfitIndex);
-        PlayerPrefs.Save(); // Salvam fizic pe disk
+        PlayerPrefs.Save(); 
 
         // 2. Next scene
         SceneManager.LoadScene(nextLevelName);
