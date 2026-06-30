@@ -6,6 +6,8 @@ public class SettingsMainMenu : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Slider musicSlider;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource[] sfxSources;
 
     private const string VolumeKey = "VolumeVolumeLevel";
     private const string MusicKey = "MusicVolumeLevel";
@@ -14,6 +16,19 @@ public class SettingsMainMenu : MonoBehaviour
     {
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
         float savedMusic = PlayerPrefs.GetFloat(MusicKey, 1f);
+       
+        if (musicSource != null)
+        {
+            musicSource.volume = savedMusic;
+        }
+
+        if (sfxSources != null)
+        {
+            foreach (AudioSource sfx in sfxSources)
+            {
+                if (sfx != null) sfx.volume = savedVolume;
+            }
+        }
 
         if (volumeSlider != null)
         {
@@ -30,13 +45,23 @@ public class SettingsMainMenu : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        AudioListener.volume = value;
-        Debug.Log("Volume set to: " + value);
+        if (sfxSources != null)
+        {
+            foreach (AudioSource sfx in sfxSources)
+            {
+                if (sfx != null) sfx.volume = value;
+            }
+        }
+        Debug.Log("SFX Volume set to: " + value);
         PlayerPrefs.SetFloat(VolumeKey, value);
     }
 
     public void SetMusic(float value)
     {
+        if (musicSource != null)
+        {
+            musicSource.volume = value;
+        }
         Debug.Log("Music set to: " + value);
         PlayerPrefs.SetFloat(MusicKey, value);
     }

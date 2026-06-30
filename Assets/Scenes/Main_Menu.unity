@@ -1162,7 +1162,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 2a111beb0173e4140961b0f7cc40b6ca, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -2363,6 +2363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMainMenu
   volumeSlider: {fileID: 1419534520}
   musicSlider: {fileID: 1395313451}
+  musicSource: {fileID: 726556619}
+  sfxSources: []
 --- !u!1 &1649259637
 GameObject:
   m_ObjectHideFlags: 0

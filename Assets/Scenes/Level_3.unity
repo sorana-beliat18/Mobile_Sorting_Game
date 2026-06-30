@@ -1210,6 +1210,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9219636717713203814, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 1284280923}
+    - target: {fileID: 9219636717713203814, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: sfxSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219636717713203814, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: 'sfxSources.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1218908171}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1220,6 +1232,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3979589507327661289, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
   m_PrefabInstance: {fileID: 1284280921}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1284280923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1801680291781490951, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+  m_PrefabInstance: {fileID: 1284280921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &1296896951 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8577990875036415765, guid: 12a4eb29c8a881145b2a9823b4f73aea, type: 3}
