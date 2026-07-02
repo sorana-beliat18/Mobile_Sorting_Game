@@ -198,14 +198,25 @@ public class GameManager : MonoBehaviour
     }
     void TriggerLevelCompleteUI()
     {
-        Debug.Log("Level Complete Scene");
-        WinScreen.SetActive(true);
-        int nextLevel = levelNumber + 1; 
+        int nextLevel = levelNumber + 1;
         if (nextLevel > PlayerPrefs.GetInt("UnlockedLevel", 1))
         {
-            PlayerPrefs.SetInt("UnlockedLevel", nextLevel); 
+            PlayerPrefs.SetInt("UnlockedLevel", nextLevel);
             PlayerPrefs.Save();
-            Debug.Log("Progres salvat! Noul nivel deblocat este: " + nextLevel);
+            Debug.Log(" Progress Saved " + nextLevel);
+        }
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (currentSceneName == "Level_10")
+        {
+            Debug.Log(" End_Game.");
+            SceneManager.LoadScene("End_Game");
+        }
+        else
+        {
+            Debug.Log("Level Complete Scene");
+            WinScreen.SetActive(true);
         }
     }
 

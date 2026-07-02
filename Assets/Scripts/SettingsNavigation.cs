@@ -5,19 +5,11 @@ using UnityEngine.SceneManagement;
 public class SettingsNavigation : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
-    [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource[] sfxSources;
     private const string VolumeKey = "VolumeVolumeLevel";
-    private const string MusicKey = "MusicVolumeLevel";
-
     void Start()
     {
         float savedVolume = PlayerPrefs.GetFloat(VolumeKey, 1f);
-        float savedMusic = PlayerPrefs.GetFloat(MusicKey, 1f);
-        if (musicSource != null)
-        {
-            musicSource.volume = savedMusic;
-        }
         ApplySFXVolume(savedVolume);
         if (volumeSlider != null)
         {
@@ -45,8 +37,8 @@ public class SettingsNavigation : MonoBehaviour
     }
     public void RetryCurrentLevel()
     {
-        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     public void ResumeGame()

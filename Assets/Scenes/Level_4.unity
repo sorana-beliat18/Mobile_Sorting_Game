@@ -1490,6 +1490,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1460367028}
     m_Modifications:
+    - target: {fileID: 1801680291781490951, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801680291781490951, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400274944}
+    - target: {fileID: 1801680291781490951, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801680291781490951, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsNavigation, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2693786552067597540, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
