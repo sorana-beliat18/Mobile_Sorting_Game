@@ -1841,7 +1841,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f0bf0d5b26daa5c4cbdae7b5680c3b27, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4764,7 +4764,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1218908171}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7789928201932625798, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2326ba3ea7055c445a4dd3fbb39ebaba, type: 3}
@@ -5008,6 +5009,10 @@ PrefabInstance:
     - target: {fileID: 5884985218392314448, guid: 7a0912dd2caf02c46b62c8a4db597e87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RetryCurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123530866020918920, guid: 7a0912dd2caf02c46b62c8a4db597e87, type: 3}
+      propertyPath: m_Volume
+      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
